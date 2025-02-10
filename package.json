@@ -10,12 +10,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^6.4.3",
     "@syncfusion/ej2-react-charts": "^28.2.4",
     "@syncfusion/ej2-react-grids": "^28.2.4",
+    "@table-library/react-table-library": "^4.1.7",
     "fusioncharts": "^4.1.2",
     "react": "^19.0.0",
     "react-calendar": "^5.1.0",
     "react-dom": "^19.0.0",
+    "react-font-style": "^0.0.11",
     "react-fusioncharts": "^4.1.0",
     "react-google-charts": "^5.2.1",
     "recharts": "^2.15.1",

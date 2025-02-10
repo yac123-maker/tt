@@ -104,12 +104,12 @@ const dataSource = {
   ]
 };
 
-class MyComponent extends React.Component {
+class Cyl extends React.Component {
     render() {
       return (
         <ReactFusioncharts
           type="mscolumn3d"
-          width="50%"
+          width="80%"
           height="50%"
           dataFormat="JSON"
           dataSource={dataSource}
@@ -118,5 +118,5 @@ class MyComponent extends React.Component {
     }
   }
   
-  export default MyComponent;
+  export default Cyl;
   

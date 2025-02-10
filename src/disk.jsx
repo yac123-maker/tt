@@ -14,15 +14,15 @@ export default function DiskPercentageChart({ data }) {
   const normalizedData = total > 0 ? data.map((item) => ({ ...item, value: (item.value / total) * 100 })) : [];
 
   return (
-    <div className="w-64 h-64">
-      <PieChart width={256} height={256}>
+    <div className="w-96 h-96">  
+      <PieChart width={400} height={400}> 
         <Pie
           data={normalizedData}
           dataKey="value"
           cx="50%"
           cy="50%"
-          innerRadius={80}
-          outerRadius={100}
+          innerRadius={120}  
+          outerRadius={160}  
           fill="#8884d8"
         >
           {normalizedData.map((entry, index) => (

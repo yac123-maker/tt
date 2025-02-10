@@ -1,13 +1,14 @@
 
 import DiskPercentageChart from './disk.jsx'
 import { Chart } from "react-google-charts";
-import MyComponent from "./bar3d.jsx";
+import Cyl from "./bar3d.jsx";
 import './App.css'
 import * as React from "react";
 import Calendar from 'react-calendar';
 import { useState } from 'react';
 import styled from 'styled-components';
-
+import BasicTable from './table.jsx';
+import BasicTable2 from './table2.jsx';
 //import { Chart3DComponent, Chart3DSeriesCollectionDirective, Chart3DSeriesDirective, Category3D, Inject, Legend3D, DataLabel3D, Tooltip3D, BarSeries3D, Highlight3D } from '@syncfusion/ej2-react-charts';
 export default function App() {
   const [value, onChange] = useState(new Date());
@@ -55,32 +56,119 @@ const data3 = [5, 8, 3, 7, 2];
 
   return (
     <div>
-      <div style={{ padding: '20px' }}>
-        <h2>Calendar</h2>
-        <CalendarContainer>
-
+      <title>Dashboard</title>
+      <h1 style={{ fontFamily: 'Verdana, sans-serif' }}>Modèle Dashboard DCISIT</h1>
+      <h2>Calendrier</h2>
+      <CalendarContainer>
         <Calendar
-        onChange={onChange}
-        value={value}
-        calendarType='gregory'
-        tileClassName="my-custom-tile" // Apply custom class for tiles
+          onChange={onChange}
+          value={value}
+          calendarType="gregory"
+          tileClassName="my-custom-tile"
         />
-        </CalendarContainer>
-      </div>  
-    <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
-      <MyComponent />
-      <DiskPercentageChart data={[{ value: 40 }, { value: 30 }, { value: 20 }, { value: 10 }]} />
-      <Chart
-        chartType="PieChart"
-        data={data}
-        options={options}
-        width={"100%"}
-        height={"400px"}
-        />
-      
+      </CalendarContainer>
+  
+      <div 
+        style={{
+          display: 'flex',
+          flexDirection: 'column', // Align elements vertically
+          alignItems: 'flex-start', // Align to the left
+          gap: '40px', // Gap between elements
+          padding: '40px 40px',
+        }}
+      >
+        {/* Table Section */}
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '100%',
+            padding: '40px 40px',
+          }}
+        >
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', width: '100%' }}>
+            {/* First Table */}
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                padding: '40px 40px',
+              }}
+            >
+              <BasicTable />
+            </div>
+  
+            {/* Second Table */}
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                padding: '40px 40px',
+              }}
+            >
+              <BasicTable2 />
+            </div>
+          </div>
         </div>
+  
+        {/* Cyl Component */}
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '100%',
+            padding: '40px 40px',
+          }}
+        >
+          <Cyl />
+        </div>
+  
+        {/* Disk Percentage Chart */}
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '100%',
+            padding: '40px 40px',
+          }}
+        >
+          <DiskPercentageChart data={[{ value: 40 }, { value: 30 }, { value: 20 }, { value: 10 }]} />
+        </div>
+  
+        {/* Pie Chart */}
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            textAlign: 'right',
+            width: '100%',
+            minWidth: '400px',
+            minHeight: '400px',
+            padding: '40px 40px',
+          }}
+        >
+          <Chart
+            chartType="PieChart"
+            data={data}
+            options={options}
+            width="400px"
+            height="400px"
+          />
+        </div>
+      </div>
     </div>
   );
+  
+  
+  
+  
+  
   
 }
 const CalendarContainer = styled.div`
